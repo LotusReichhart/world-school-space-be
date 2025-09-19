@@ -183,21 +183,23 @@ const MainNews = () => {
                     {/* Cột giữa (4 phần) */}
                     <div className="col-span-5 space-y-6 mx-3">
                         {posts.map((postss) => (
-                            <div className="border-b pb-3 hover:italic grid grid-cols-2 gap-4">
-                                <img
-                                    src={`http://127.0.0.1:8000/storage/${postss.image}`}
-                                    alt="Trường DH FPT"
-                                    className="w-full h-56 object-cover"
-                                />
-                                <div>
-                                    <h3 className="text-lg font-bold">
-                                        {postss.name}
-                                    </h3>
-                                    <p className="text-gray-600">
-                                        {postss.content?.replace(/<\/?[^>]+(>|$)/g, "").split(" ").slice(0, 50).join(" ") + "..."}
-                                    </p>
+                            <a href={`/detail/${postss.slug}`} className={"no-underline text-black"}>
+                                <div className="border-b pb-3 hover:italic grid grid-cols-2 gap-4">
+                                    <img
+                                        src={`http://127.0.0.1:8000/storage/${postss.image}`}
+                                        alt="Trường DH FPT"
+                                        className="w-full h-56 object-cover"
+                                    />
+                                    <div>
+                                        <h3 className="text-lg font-bold">
+                                            {postss.name}
+                                        </h3>
+                                        <p className="text-gray-600">
+                                            {postss.content?.replace(/<\/?[^>]+(>|$)/g, "").split(" ").slice(0, 50).join(" ") + "..."}
+                                        </p>
+                                    </div>
                                 </div>
-                            </div>
+                            </a>
                         ))
                         }
                     </div>
